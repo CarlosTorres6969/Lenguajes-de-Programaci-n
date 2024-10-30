@@ -1,0 +1,37 @@
+---
+
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE=[ {
+    date: 'Actualmente',
+    title: 'Portafolio usando Astro.js - Astro js',
+    description: 
+        'Un portafolio creado con Astro.js, optimizado para velocidad y eficiencia, donde destaco mis habilidades en desarrollo web, APIs, bases de datos y proyectos en C#. Incluye una navegación intuitiva, secciones de proyectos, experiencia y contacto, todo diseñado para una experiencia rápida y responsiva.',
+    link: '/projects/portafolio',
+},
+{
+    date: '23 de Agosto 2023',
+    title: 'Simpletron',
+    description: 
+        'Simpletron es una máquina virtual simple en Java diseñada para ejecutar programas en lenguaje de máquina. Simula operaciones básicas como carga, almacenamiento, aritmética y control de flujo, permitiendo experimentar con conceptos de memoria y CPU.',
+        link: "/projects/simpletron",
+},
+{
+    date: '22 de Agosto 2023',
+    title: 'CRUD-API',
+    description: 
+        'Una CRUD API desarrollada con Java Spring Boot que permite crear, leer, actualizar y eliminar datos. La API está documentada y probada con Postman para asegurar su funcionalidad y facilidad de uso.',
+        link: "/projects/crud",
+}
+
+    
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">        
+    {EXPERIENCE.map(experience=>(<li class="mb-10 ms-4">
+        <ExperienceItem {...experience}/>
+    </li>))}
+             
+</ol>
+

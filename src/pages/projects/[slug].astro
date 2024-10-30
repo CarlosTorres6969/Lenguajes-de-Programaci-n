@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+interface Project {
+  title: string;
+  description: string;
+}
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'portafolio' } },
+    { params: { slug: 'simpletron' } },
+    { params: { slug: 'crud' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+const projectData: Record<string, Project> = {
+  portafolio: {
+    title: "PORTAFOLIO",
+    description: "Un portafolio creado con Astro.js, optimizado para velocidad y eficiencia, donde destaco mis habilidades en desarrollo web, APIs, bases de datos y proyectos en C#. Incluye una navegación intuitiva, secciones de proyectos, experiencia y contacto, todo diseñado para una experiencia rápida y responsiva las tecnogías utilizadas para realizar dicho proyecto fueron: Astro.js, Tailwind CSS y HTML.",},
+  
+	
+	
+	
+	simpletron: {
+    title: "SOY EL TITULO DE: SIMPLETRON",
+    description: "SOY LA DESCRIPCION DE: SIMPLETRON",
+  },
+ 
+ 
+  crud: {
+    title: "SOY EL TITULO DE: CRUD",
+    description: "SOY LA DESCRIPCION DE: CRUD",
+  },
+};
+---
+
+<Layout title={projectData[slug].title} description={projectData[slug].description}>
+  <div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold">{projectData[slug].title}</h1> {/* Aumenta el tamaño del título */}
+    <p class="text-lg mt-2">{projectData[slug].description}</p> 
+  </div>
+</Layout>

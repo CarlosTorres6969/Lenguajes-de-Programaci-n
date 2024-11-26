@@ -9,6 +9,7 @@ interface Project {
 
 export function getStaticPaths() {
   return [
+    { params: { slug: 'Databricks-Scala' } },
     { params: { slug: 'portafolio' } },
     { params: { slug: 'simpletron' } },
     { params: { slug: 'crud' } },
@@ -18,6 +19,13 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 
 const projectData: Record<string, Project> = {
+  'Databricks-Scala': {
+    title: "Databricks-Scala",
+    description: "Este proyecto utiliza Scala en Databricks para analizar datos de partidas clasificatorias de *League of Legends*, explorando factores estratégicos que influyen en las victorias. A partir de un dataset con información detallada sobre objetivos como torres, dragones, el Barón Nashor, y métricas de equipo como diferencia de oro, experiencia y actividad de visión, buscamos identificar patrones clave. El análisis permite responder preguntas como el impacto de destruir la primera torre, el efecto de los dragones, y la relación entre estructuras destruidas y la duración del juego. Todo esto, apoyado por la capacidad de procesamiento de Spark en Databricks, permite obtener insights accionables para optimizar estrategias de juego.",
+    links: [
+      { label: "GitHub Repo", url: "https://carlostorres6969.github.io/Scala/Index.html" },
+    ],
+  },
   portafolio: {
     title: "PORTAFOLIO",
     description: "Un portafolio creado con Astro.js, optimizado para velocidad y eficiencia, donde destaco mis habilidades en desarrollo web, APIs, bases de datos y proyectos en C#. Incluye una navegación intuitiva, secciones de proyectos, experiencia y contacto, todo diseñado para una experiencia rápida y responsiva. Las tecnologías utilizadas fueron: Astro.js, Tailwind CSS y HTML.",
@@ -27,17 +35,16 @@ const projectData: Record<string, Project> = {
   },
   simpletron: {
     title: "SIMPLETRON",
-    description: "Simpleton es una máquina virtual educatica diseñada para simular el funcionamiento de una computadora báscia. Se utiliza comúnmunte en cursos de programación y ciencia de la computación para enseñar los principios fundamenttales de arquitectura de computadoras. Las tecnologías utilizadas son: C++",
+    description: "Simpletron es una máquina virtual educativa diseñada para simular el funcionamiento de una computadora básica. Se utiliza comúnmente en cursos de programación y ciencia de la computación para enseñar los principios fundamentales de arquitectura de computadoras. Las tecnologías utilizadas son: C++.",
     links: [
       { label: "GitHub Repo", url: "https://github.com/CarlosTorres6969/Simpletron" },
     ],
   },
   crud: {
     title: "CRUD",
-    description: "Una CRUD-API creada con Springboot en java permite realizar operaciones de crear,leer,actualizar y eliminar datos en una base de datos mediante endpoints RESTful. Postman se utiliza para probar estos endpoints (como GET, POST, PUT, DELETE), verificando que cada operación funcione correctamente, facilitando el desarrolo y la depuración. Las tecnologías usadas fueron: Java-SpringBoot, Postman,etc",
+    description: "Una CRUD-API creada con Spring Boot en Java permite realizar operaciones de crear, leer, actualizar y eliminar datos en una base de datos mediante endpoints RESTful. Postman se utiliza para probar estos endpoints (como GET, POST, PUT, DELETE), verificando que cada operación funcione correctamente, facilitando el desarrollo y la depuración. Las tecnologías usadas fueron: Java-Spring Boot, Postman, etc.",
     links: [
       { label: "GitHub Repo", url: "https://github.com/CarlosTorres6969/CRUD-API" },
-
     ],
   },
 };
@@ -45,14 +52,18 @@ const projectData: Record<string, Project> = {
 
 <Layout title={projectData[slug].title} description={projectData[slug].description}>
   <div class="container mx-auto px-4">
-    <h1 class="text-3xl font-bold">{projectData[slug].title}</h1>
-    <p class="text-lg mt-2">{projectData[slug].description}</p>
-    
+    <h1 class="text-3xl font-bold text-white">{projectData[slug].title}</h1>
+    <p class="text-lg mt-2 text-white">{projectData[slug].description}</p>
     
     {projectData[slug].links && (
       <div class="mt-4 space-y-2">
         {projectData[slug].links.map((link) => (
-          <a href={link.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+          <a 
+            href={link.url} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="text-white hover:underline"
+          >
             {link.label}
           </a>
         ))}
@@ -60,3 +71,4 @@ const projectData: Record<string, Project> = {
     )}
   </div>
 </Layout>
+

@@ -9,6 +9,7 @@ interface Project {
 
 export function getStaticPaths() {
   return [
+    { params: { slug: 'Go-Grpc-Campeoneslol' } },
     { params: { slug: 'Databricks-Scala' } },
     { params: { slug: 'portafolio' } },
     { params: { slug: 'simpletron' } },
@@ -19,6 +20,19 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 
 const projectData: Record<string, Project> = {
+ "Go-Grpc-Campeoneslol": {
+  title: "Go-Grpc-Campeoneslol",
+  description: 
+    "El proyecto \"Go-Grpc-Campeoneslol\" es una implementación de un sistema de servicios gRPC para gestionar información sobre los campeones de *League of Legends* (LoL). Este proyecto tiene como objetivo aplicar los conceptos fundamentales de gRPC, usando los cuatro tipos de servicios principales: Unary, Server Streaming, Client Streaming y Bidirectional Streaming.\n\n" + 
+    "El servicio Unary permite consultar información detallada sobre un campeón dado su nombre. El Server Streaming permite listar campeones de un tipo específico y transmitirlos a medida que se encuentran disponibles. El Client Streaming permite recibir una lista de campeones y devolver sus \"tiers\" o clasificaciones. Finalmente, el Bidirectional Streaming permite actualizar en tiempo real el tipo y el tier de los campeones, brindando una interacción más dinámica y eficiente con la base de datos.\n\n" + 
+    "Este sistema será desplegado en Azure, donde aprovecharé sus servicios para escalar la aplicación y garantizar su alta disponibilidad. El objetivo final es integrar este proyecto dentro de un portafolio web, permitiendo a los usuarios explorar y consultar información de los campeones de manera interactiva y eficiente.",
+  links: [
+    { label: "GitHub Repo", url: "https://github.com/CarlosTorres6969/Go-Grpc_Proyect" },
+    { label: "  Descargar archivo   .proto", url: "https://drive.google.com/drive/folders/1DC9H39DpOURqlyQaxh6YTuPZZUcmTl2Z?usp=sharing" }, 
+  ],
+},
+
+
   'Databricks-Scala': {
     title: "Databricks-Scala",
     description: "Este proyecto utiliza Scala en Databricks para analizar datos de partidas clasificatorias de *League of Legends*, explorando factores estratégicos que influyen en las victorias. A partir de un dataset con información detallada sobre objetivos como torres, dragones, el Barón Nashor, y métricas de equipo como diferencia de oro, experiencia y actividad de visión, buscamos identificar patrones clave. El análisis permite responder preguntas como el impacto de destruir la primera torre, el efecto de los dragones, y la relación entre estructuras destruidas y la duración del juego. Todo esto, apoyado por la capacidad de procesamiento de Spark en Databricks, permite obtener insights accionables para optimizar estrategias de juego.",
@@ -36,7 +50,7 @@ const projectData: Record<string, Project> = {
   },
   simpletron: {
     title: "SIMPLETRON",
-    description: "Simpletron es una máquina virtual educativa diseñada para simular el funcionamiento de una computadora básica. Se utiliza comúnmente en cursos de programación y ciencia de la computación para enseñar los principios fundamentales de arquitectura de computadoras. Las tecnologías utilizadas son: C++.",
+    description: "Simpletron es una máquina virtual educativa diseñada para simular el funcionamiento de una computadora básica. Se utiliza comúnmente en cursos de programación y ciencia de la computación para enseñar los principios fundamentales de arquitectura de computadoras. Las tecnologías utilizadas son: C++. ",
     links: [
       { label: "GitHub Repo", url: "https://github.com/CarlosTorres6969/Simpletron" },
     ],
@@ -72,4 +86,3 @@ const projectData: Record<string, Project> = {
     )}
   </div>
 </Layout>
-
